@@ -6,7 +6,7 @@
 #    By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/24 19:32:26 by bcorrea-          #+#    #+#              #
-#    Updated: 2021/08/25 01:13:43 by bcorrea-         ###   ########.fr        #
+#    Updated: 2021/08/25 02:39:53 by bcorrea-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,14 +23,14 @@ FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME) tests
 
-tests: \
+tests: clean_tests \
 	$(BIN)/tests
 
 $(NAME): \
 	$(OBJ)/isalpha.o
 	ar -rcs $(LIB)/$(NAME).a $(OBJ)/*.o
 
-$(OBJ)/%.o: $(SRC)/%.c $(INCLUDE)/%.h
+$(OBJ)/%.o: $(SRC)/%.c $(INCLUDE)/$(NAME).h
 	$(CC) -c $(FLAGS) $< -I $(INCLUDE) -o $@
 
 $(BIN)/%: $(TESTS)/%.c
