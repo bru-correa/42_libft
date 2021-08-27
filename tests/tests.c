@@ -1,56 +1,33 @@
-/*
-	Future tests
-*/
-
+#define _XOPEN_SOURCE 700
+#include <signal.h>
 #include <stdio.h>
-#include "../include/libft.h"
 
-void	print_KO(void);
-void	print_OK(void);
-void	check_int(int output, int expected);
-void	test_init(char *file_name);
-void	print_div(void);
-
-int	main(void)
+void	check_for_segv()
 {
-	test_init("isalpha.c");
-	check_int(isalpha('A'), 1);
-	check_int(isalpha(5), 1);
-	print_div();
-	return (0);
+	struct sigaction sa;
+	sa.sa_handler = handler_sigsegv;
+	sa.sa_flags = SA_RESTART;
+	sigaction(SIGSEGV, &sa, NULL);
 }
 
-void	print_KO(void)
+void	handler_sigsegv(int sig)
 {
-	printf("\033[0;31m");
-	printf("X ");
-	printf("\033[0m");
+	fflush(stdout);
+	write(1, "S ", 1);
+	raise(SIGINT);
 }
 
-void	print_OK(void)
+void	print_result(int state)
 {
-	printf("\033[0;32m");
-	printf("O ");
-	printf("\033[0m");
-}
-
-void	check_int(int output, int expected)
-{
-	if (output == expected)
+	if (state > 0)
 	{
-		print_OK();
-		return ;
+		printf("\033[0;32m");
+		printf("O ");
 	}
-	print_KO();
-}
-
-void	test_init(char *file_name)
-{
-	printf("Testing %s:", file_name);
-	print_div();
-}
-
-void	print_div(void)
-{
-	printf("\n--------------------\n");
+	else
+	{
+		printf("\033[0;31m");
+		printf("X ");
+	}
+	pritnf("\033[0m");
 }
