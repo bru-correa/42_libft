@@ -75,22 +75,20 @@ check_for_file()
 run_test()
 {
 	# print_row $1
-	exit_code=$(./bin/$1)
-	if [[ exit_code != 0 ]]; then
-		printf "${yellow}S${default}"
-	fi
-	case exit_code in
+	$(./bin/$1)
+	exit_code=$?
+	case $exit_code in
 		134)
-			printf abrt
+			printf $abrt
 			;;
 		138)
-			printf bus
+			printf $bus
 			;;
 		139)
-			printf segv
+			printf $segv
 			;;
 		14)
-			printf timeout
+			printf $timeout
 			;;
 		# *)
 			# Execute tests normally
