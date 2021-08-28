@@ -1,20 +1,29 @@
 #!/bin/bash
 
-row_offset=29
-space_between=20
+## VARIABLES
+# Template Setup
+row_offset=24
+space_between_col=15
 
+# Color Definitions
 default='\033[0m'
 blue='\033[0;34m'
 red='\033[0;31m'
 green='\033[0;32m'
 cyan='\033[36m'
 purple='\033[35m'
+yellow='\033[33m'
 
 bold="\033[1m"
 underline="\033[4m"
 
+# Color Customizations
+header_style=${purple}${underline}
 correct="${green}O${default}"
 wrong="${red}X${default}"
+abrt="${yellow}A${default}"
+bus="${yellow}B${default}"
+segv="${yellow}S${default}"
 
 print_row()
 {
@@ -22,10 +31,7 @@ print_row()
 	# Get the number of elements from the variable
 	str_len=${#1}
 	str_len=$(($row_offset-$str_len))
-	while [ "$str_len" -gt "0" ]; do
-		printf " "
-		str_len=$(($str_len-1))
-	done
+	print_spaces $str_len
 }
 
 print_spaces()
@@ -38,9 +44,13 @@ print_spaces()
 
 print_header()
 {
-	printf "${purple}${underline}FUNCTIONS${default}"
-	print_spaces space_between
-	printf "${purple}${underline}TESTS${default}\n"
+	printf "${header_style}FUNCTIONS${default}"
+	print_spaces space_between_col
+	printf "${header_style}TESTS${default}"
+	print_spaces space_between_col
+	printf "${header_style}NORM${default}"
+	print_spaces space_between_col
+	printf "${header_style}RESULT${default}\n"
 }
 
 print_header
@@ -51,3 +61,37 @@ printf $correct
 printf $correct
 printf $wrong
 printf $wrong
+
+# Checks if the "function.c" passed as an argument exists
+check_for_file()
+{
+	if [[ $(find ../ -type f -name ${1}.c | wc -l)  != 1 ]]; then
+		printf "${red}Nothing turned in!${default}"
+	fi
+}
+
+# Checks if the program will send an exit code, if not, run the test normally
+run_test()
+{
+	# print_row $1
+	exit_code=$(./bin/$1)
+	if [[ exit_code != 0 ]]; then
+		printf "${yellow}S${default}"
+	fi
+	case exit_code in
+		134)
+			printf "${yellow}A${default}"
+			;;
+		138)
+			printf "${yellow}B${default}"
+			;;
+		139)
+			printf "${yellow}S${default}"
+		# *)
+			# Execute tests normally
+			## ;;
+	esac
+}
+
+run_test seg
+# check_for_file islower
