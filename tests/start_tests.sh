@@ -24,6 +24,7 @@ wrong="${red}X${default}"
 abrt="${yellow}A${default}"
 bus="${yellow}B${default}"
 segv="${yellow}S${default}"
+timeout="${yellow}T${default}"
 
 print_row()
 {
@@ -80,13 +81,17 @@ run_test()
 	fi
 	case exit_code in
 		134)
-			printf "${yellow}A${default}"
+			printf abrt
 			;;
 		138)
-			printf "${yellow}B${default}"
+			printf bus
 			;;
 		139)
-			printf "${yellow}S${default}"
+			printf segv
+			;;
+		14)
+			printf timeout
+			;;
 		# *)
 			# Execute tests normally
 			## ;;
