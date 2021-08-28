@@ -62,6 +62,7 @@ printf $correct
 printf $correct
 printf $wrong
 printf $wrong
+printf "\n"
 
 # Checks if the "function.c" passed as an argument exists
 check_for_file()
@@ -74,27 +75,31 @@ check_for_file()
 # Checks if the program will send an exit code, if not, run the test normally
 run_test()
 {
-	# print_row $1
+	print_row $1
 	$(./bin/$1)
 	exit_code=$?
 	case $exit_code in
 		134)
 			printf $abrt
 			;;
-		138)
+		135 | 138)
 			printf $bus
 			;;
 		139)
 			printf $segv
 			;;
-		14)
+		14 | 142)
 			printf $timeout
 			;;
 		# *)
 			# Execute tests normally
 			## ;;
 	esac
+	printf "\n"
 }
 
 run_test seg
+run_test abrt
+run_test bus
+run_test timeout
 # check_for_file islower
