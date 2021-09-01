@@ -14,7 +14,7 @@ void	test_isalpha(char input, char *expected_output)
 	print_results(&output_string, expected_output);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	int	arg;
 
@@ -24,5 +24,7 @@ int main(int argc, char *argv[])
 	arg = atoi(argv[1]);
 	if (arg == 1)
 		test_isalpha('a', "1");
+	else if (arg == 2)
+		test_isalpha('5', "0");
 	return(0);
 }

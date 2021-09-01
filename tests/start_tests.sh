@@ -3,9 +3,10 @@
 ## VARIABLES
 # Directory Location
 bin="./bin"
+logs="./logs"
 
 # Template Setup
-row_offset=24
+row_offset=20
 space_between_col=15
 
 # Color Definitions
@@ -30,19 +31,26 @@ segv="${yellow}S${default}"
 timeout="${yellow}T${default}"
 passed="${green}PASSED${default}"
 failed="${red}FAILED${default}"
+ok="${green}O.K.${default}"
+ko="${red}K.O.${default}"
+empty="${red}EMPTY$default"
 
-# 42 when everything is correct, -42 when it isn't and 0 when the file is not found
-result=0
-result_ok=42
-result_ko=-42
-result_empty=0
+# Possible Results
+result_ok="O.K."
+result_ko=-"K.O."
+result_empty="EMPTY"
 
 print_row()
 {
-	printf "${cyan}$1${default}"
 	# Get the number of elements from the variable
 	str_len=${#1}
 	str_len=$(($row_offset-$str_len))
+	print_spaces $str_len
+}
+
+print_row_n()
+{
+	str_len=$(($row_offset-$1))
 	print_spaces $str_len
 }
 
@@ -57,29 +65,24 @@ print_spaces()
 print_header()
 {
 	printf "${header_style}FUNCTIONS${default}"
-	print_spaces space_between_col
+	print_row FUNCTIONS
 	printf "${header_style}NORM${default}"
-	print_spaces space_between_col
+	print_row NORM
 	printf "${header_style}TESTS${default}"
-	print_spaces space_between_col
+	print_row TESTS
 	printf "${header_style}RESULT${default}\n"
 }
 
-print_header
-print_row isalpha
-printf $correct
-printf $wrong
-printf $correct
-printf $correct
-printf $wrong
-printf $wrong
-printf "\n"
+print_name()
+{
+	printf "${cyan}$1${default}"
+	print_row $1
+}
 
 # Checks if the "function.c" passed as an argument exists
 check_for_file()
 {
-	if [[ $(find ../ -type f -name ${1}.c | wc -l)  != 1 ]]; then
-		printf "${red}Nothing turned in!${default}"
+	if [[ $(find ../ -maxdepth 1 -type f -name ${1}.c | wc -l) != 1 ]]; then
 		result=$result_empty
 	fi
 }
@@ -87,57 +90,94 @@ check_for_file()
 check_norm()
 {
 	norm=$(norminette ../$1.c | tr -d '\n' | tail -c 3)
-	if [[ norm == "OK!" ]]; then
-		printf passed
+	if [[ "$norm" = "OK!" ]]; then
+		printf $passed
+		print_row PASSED
 	else
-		printf failed
+		printf $failed
 		result=$result_ko
+		print_row FAILED
 	fi
 }
 
 # Checks if the program will send an exit code, if not, run the test normally
 run_tests()
 {
+	mkdir -p $logs/$1
 	current_test=1
-	print_row $1
-	$(./bin/$1)
-	exit_code=$?
-	case $exit_code in
-		134)
-			printf $abrt
-			result=$result_ko
-			;;
-		135 | 138)
-			printf $bus
-			result=$result_ko
-			;;
-		139)
-			printf $segv
-			result=$result_ko
-			;;
-		14 | 142)
-			printf $timeout
-			result=$result_ko
-			;;
-		*)
-			while [[ current_test -gt 0 ]]
-			do
-				test_output=$(${bin}/${1} ${current_test})
-				printf "${test_output}"
-				if [ -z "$test_output" ]; then
+	test_output_length=0
+	while [[ current_test -gt 0 ]]
+	do
+		test_output=$(${bin}/${1} ${current_test})
+		exit_code=$?
+		case $exit_code in
+			134)
+				printf $abrt
+				result=$result_ko
+				;;
+			135 | 138)
+				printf $bus
+				result=$result_ko
+				;;
+			139)
+				printf $segv
+				result=$result_ko
+				;;
+			14 | 142)
+				printf $timeout
+				result=$result_ko
+				;;
+			*)
+				if [ -z "${test_output}" ]; then
 					current_test=0
 				else
+					if [[ $(printf "${test_output}" | tail -c 2) -eq "OK" ]]; then
+						printf $correct
+						test_output_length=$(($test_output_length+1))
+
+					else
+						printf $wrong
+						result=$result_ko
+						test_output_length=$(($test_output_length+1))
+					fi
+					printf "${test_output}" > $logs/$1/$1$current_test.txt
 					current_test=$(($current_test+1))
 				fi
-			done
+				;;
+		esac
+	done
+	print_row_n test_output_length
+}
+
+print_result()
+{
+	case $result in
+		$result_ok)
+			printf $ok
+			;;
+		$result_ko)
+			printf $ko
+			;;
+		$result_empty)
+			printf $empty
 			;;
 	esac
 	printf "\n"
 }
 
-run_tests seg
-run_tests abrt
-run_tests bus
+begin_test()
+{
+	result=$result_ok
+	mkdir -p $logs/$1
+	print_name $1
+	check_for_file $1
+	check_norm $1
+	run_tests $1
+	print_result
+}
+print_header
+# run_tests seg
+# run_tests abrt
+# run_tests bus
 # run_tests timeout
-run_tests isalpha
-# check_for_file islower
+begin_test isalpha
