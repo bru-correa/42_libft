@@ -114,18 +114,22 @@ run_tests()
 			134)
 				printf $abrt
 				result=$result_ko
+				current_test=$(($current_test+1))
 				;;
 			135 | 138)
 				printf $bus
 				result=$result_ko
+				current_test=$(($current_test+1))
 				;;
 			139)
 				printf $segv
 				result=$result_ko
+				current_test=$(($current_test+1))
 				;;
 			14 | 142)
 				printf $timeout
 				result=$result_ko
+				current_test=$(($current_test+1))
 				;;
 			*)
 				if [ -z "${test_output}" ]; then
@@ -171,13 +175,25 @@ begin_test()
 	mkdir -p $logs/$1
 	print_name $1
 	check_for_file $1
-	check_norm $1
-	run_tests $1
+	if [[ "$result" = "$result_empty" ]]; then
+		print_row_n 0
+		print_row_n 0
+	else
+		check_norm $1
+		run_tests $1
+	fi
 	print_result
 }
+
+test_all()
+{
+	current_test=1
+	test_files=$(find ./src/tests/ -type f -name "*.c" | xargs -n 1 basename --suffix=".c")
+	test_files_amount=$(find ./src/tests/ -type f -name "*.c" | wc -l)
+	if [[ $current_test -le $test_files_amount ]]; then
+		begin_test $(printf ${test_files} | sed -n "${current_test}p")
+		current_test=$(($current_test+1))
+	fi
+}
 print_header
-# run_tests seg
-# run_tests abrt
-# run_tests bus
-# run_tests timeout
-begin_test isalpha
+test_all
