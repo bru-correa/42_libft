@@ -10,6 +10,13 @@
  * @return int Returns 0 if false and nonzero if true
 */
 int	isalpha(int c);
+
+/**
+ * @brief Checks if c is a digit in ASCII
+ *
+ * @param c Character to be analysed
+ * @return int Returns 0 if false and nonzero if true
+*/
 int	isdigit(int c);
 
 #endif

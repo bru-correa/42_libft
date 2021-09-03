@@ -25,6 +25,26 @@ int	main(int argc, char *argv[])
 	if (arg == 1)
 		test_isalpha('a', "1");
 	else if (arg == 2)
-		test_isalpha('5', "0");
+		test_isalpha('a' + 1, "1");
+	else if (arg == 3)
+		test_isalpha('a' - 1, "0");
+	else if (arg == 4)
+		test_isalpha('z', "1");
+	else if (arg == 5)
+		test_isalpha('z' + 1, "0");
+	else if (arg == 6)
+		test_isalpha('z' - 1, "1");
+	else if (arg == 7)
+		test_isalpha('A', "1");
+	else if (arg == 8)
+		test_isalpha('A' + 1, "1");
+	else if (arg == 9)
+		test_isalpha('A' - 1, "0");
+	else if (arg == 10)
+		test_isalpha('Z' + 1, "0");
+	else if (arg == 11)
+		test_isalpha('Z' - 1, "1");
+	else if (arg == 12)
+		test_isalpha('Z', "1");
 	return (0);
 }

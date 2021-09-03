@@ -6,7 +6,7 @@
 #    By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/01 17:37:06 by bcorrea-          #+#    #+#              #
-#    Updated: 2021/09/03 12:56:30 by bcorrea-         ###   ########.fr        #
+#    Updated: 2021/09/03 13:08:35 by bcorrea-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,3 +63,7 @@ test: all $(TEST_B) #insert bonus here later
 
 ./tests/bin/%: ./tests/src/tests/%.c
 	$(CC) $(FLAGS) $< ./tests/lib/libtest.a -I ./tests/include -I ./ -o $@
+
+libtest.a:
+	$(CC) $(FLAGS) ./tests/src/tests.c -I ./tests/include -o ./tests/obj/tests.o
+	ar -rcs $@ ./tests/obj/tests.o
