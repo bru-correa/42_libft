@@ -3,15 +3,15 @@
 #include "libtest.h"
 #include "libft.h"
 
-void test(int input, char *expected_output);
+void	test(int input, char *expected_output);
 
 int	main(int argc, char *argv[])
 {
-	int arg;
+	int	arg;
 
 	alarm(5);
 	if (argc == 1)
-	return (0);
+		return (0);
 	arg = atoi(argv[1]);
 	if (arg == 1)
 		test('0', "1");

@@ -19,4 +19,12 @@ int	isalpha(int c);
 */
 int	isdigit(int c);
 
+/**
+ * @brief Checks for an alphanumeric character in ASCII
+ *
+ * @param c  Character to be analysed
+ * @return int Returns 0 if false and nonzero if true
+*/
+int	isalnum(int c);
+
 #endif

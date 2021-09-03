@@ -1,0 +1,3 @@
+Output:   0A
+Expected: 1
+KO
