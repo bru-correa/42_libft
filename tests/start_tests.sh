@@ -2,8 +2,13 @@
 
 ## VARIABLES
 # Directory Location
-bin="./bin"
-logs="./logs"
+
+test_dir="./tests"
+main_dir="."
+bin_dir="${test_dir}/bin"
+logs_dir="${test_dir}/logs"
+src_dir="${test_dir}/src/tests"
+
 
 # Template Setup
 row_offset=20
@@ -82,14 +87,14 @@ print_name()
 # Checks if the "function.c" passed as an argument exists
 check_for_file()
 {
-	if [[ $(find ../ -maxdepth 1 -type f -name ${1}.c | wc -l) != 1 ]]; then
+	if [[ $(find ${main_dir} -maxdepth 1 -type f -name ${1}.c | wc -l) != 1 ]]; then
 		result=$result_empty
 	fi
 }
 
 check_norm()
 {
-	norm=$(norminette ../$1.c | tr -d '\n' | tail -c 3)
+	norm=$(norminette ${main_dir}/${1}.c | tr -d '\n' | tail -c 3)
 	if [[ "$norm" = "OK!" ]]; then
 		printf $passed
 		print_row PASSED
@@ -103,12 +108,12 @@ check_norm()
 # Checks if the program will send an exit code, if not, run the test normally
 run_tests()
 {
-	mkdir -p $logs/$1
+	mkdir -p $logs_dir/$1
 	current_test=1
 	test_output_length=0
 	while [[ current_test -gt 0 ]]
 	do
-		test_output=$(${bin}/${1} ${current_test})
+		test_output=$(${bin_dir}/${1} ${current_test})
 		exit_code=$?
 		case $exit_code in
 			134)
@@ -144,7 +149,7 @@ run_tests()
 						result=$result_ko
 						test_output_length=$(($test_output_length+1))
 					fi
-					printf "${test_output}" > $logs/$1/$1$current_test.txt
+					printf "${test_output}" > $logs_dir/$1/$1$current_test.txt
 					current_test=$(($current_test+1))
 				fi
 				;;
@@ -172,7 +177,7 @@ print_result()
 begin_test()
 {
 	result=$result_ok
-	mkdir -p $logs/$1
+	mkdir -p $logs_dir/$1
 	print_name $1
 	check_for_file $1
 	if [[ "$result" = "$result_empty" ]]; then
@@ -187,13 +192,14 @@ begin_test()
 
 test_all()
 {
-	current_test=1
-	test_files=$(find ./src/tests/ -type f -name "*.c" | xargs -n 1 basename --suffix=".c")
-	test_files_amount=$(find ./src/tests/ -type f -name "*.c" | wc -l)
-	if [[ $current_test -le $test_files_amount ]]; then
-		begin_test $(printf ${test_files} | sed -n "${current_test}p")
-		current_test=$(($current_test+1))
-	fi
+	current_function=1
+	test_files_amount=$(find ${src_dir}/ -type f | wc -l)
+	while [[ $current_function -le $test_files_amount ]]
+	do
+		begin_test $(find ${src_dir} -type f | xargs basename --suffix=".c" \
+			| sed -n "${current_function}p")
+		current_function=$(($current_function+1))
+	done
 }
 print_header
 test_all
