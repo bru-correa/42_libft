@@ -1,3 +1,6 @@
-Output:   
-Expected: 0
-KO
+Current char: 91 Output: 0
+Current char: 92 Output: 0
+Current char: 93 Output: 0
+Current char: 94 Output: 0
+Current char: 95 Output: 0
+OK

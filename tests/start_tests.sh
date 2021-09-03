@@ -140,7 +140,7 @@ run_tests()
 				if [ -z "${test_output}" ]; then
 					current_test=0
 				else
-					if [[ $(printf "${test_output}" | tail -c 2) -eq "OK" ]]; then
+					if [[ $(printf "${test_output}" | tail -c 2) = "OK" ]]; then
 						printf $correct
 						test_output_length=$(($test_output_length+1))
 

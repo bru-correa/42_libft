@@ -1,3 +1,10 @@
-Output:   
-Expected: 1
-KO
+Current char: 48 Output: 1
+Current char: 49 Output: 1
+Current char: 50 Output: 1
+Current char: 51 Output: 1
+Current char: 52 Output: 1
+Current char: 53 Output: 1
+Current char: 54 Output: 1
+Current char: 55 Output: 1
+Current char: 56 Output: 1
+OK
