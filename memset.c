@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   memset.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/03 23:41:52 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/03 23:41:54 by bcorrea-         ###   ########.fr       */
+/*   Created: 2021/09/03 23:40:42 by bcorrea-          #+#    #+#             */
+/*   Updated: 2021/09/04 00:01:08 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlen(const char *s)
+void	*memset(void *dest, int c, size_t len)
 {
-	int	length;
+	void	*dest_start;
 
-	length = 0;
-	while (*s != '\n')
-	{
-		s++;
-		length++;
-	}
-	return (length);
+	dest_start = dest;
+	while (len-- > 0)
+		*(unsigned char *) dest++ = (unsigned char) c;
+	return (dest_start);
 }
