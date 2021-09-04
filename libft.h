@@ -6,12 +6,14 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/03 21:44:07 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/03 22:28:34 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# include <stdlib.h>
 
 /* ***** Part 1 - Libc Functions ***** */
 
@@ -21,7 +23,7 @@
  * @param c Character to be analysed
  * @return int Returns 0 if false and nonzero if true
 */
-int	isalpha(int c);
+int		isalpha(int c);
 
 /**
  * @brief Checks if c is a digit in ASCII
@@ -29,7 +31,7 @@ int	isalpha(int c);
  * @param c Character to be analysed
  * @return int Returns 0 if false and nonzero if true
 */
-int	isdigit(int c);
+int		isdigit(int c);
 
 /**
  * @brief Checks for an alphanumeric character in ASCII
@@ -37,7 +39,7 @@ int	isdigit(int c);
  * @param c  Character to be analysed
  * @return int Returns 0 if false and nonzero if true
 */
-int	isalnum(int c);
+int		isalnum(int c);
 
 /**
  * @brief Checks whether c is a 7-bit unsigned char value that fits into the
@@ -46,7 +48,7 @@ int	isalnum(int c);
  * @param c Character to be analysed
  * @return int Returns 0 if false and nonzero if true
 */
-int	isascii(int c);
+int		isascii(int c);
 
 /**
  * @brief Checks if C is a printable character in ASCII
@@ -54,6 +56,15 @@ int	isascii(int c);
  * @param c Character to be analysed
  * @return int Returns 0 if false and nonzero if true
 */
-int	isprint(int c);
+int		isprint(int c);
+
+/**
+ * @brief Calculates the length of the string s, excluding the terminatig null
+ * byte
+ *
+ * @param s Constant string to be analysed
+ * @return size_t Returns the number of bytes in the string s
+*/
+size_t	strlen(const char *s);
 
 #endif
