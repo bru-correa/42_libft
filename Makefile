@@ -6,7 +6,7 @@
 #    By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/01 17:37:06 by bcorrea-          #+#    #+#              #
-#    Updated: 2021/09/03 20:35:36 by bcorrea-         ###   ########.fr        #
+#    Updated: 2021/09/03 21:29:33 by bcorrea-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ TEST_SH	= tests/start_tests.sh
 			ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
 			ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-MAIN_S	= isalpha.c isdigit.c isalnum.c isascii.c
+MAIN_S	= isalpha.c isdigit.c isalnum.c isascii.c isprint.c
 MAIN_O	= $(MAIN_S:.c=.o)
 BONUS_S	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \

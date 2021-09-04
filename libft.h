@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/03 20:40:21 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/03 21:44:07 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,13 @@ int	isalnum(int c);
  * @return int Returns 0 if false and nonzero if true
 */
 int	isascii(int c);
+
+/**
+ * @brief Checks if C is a printable character in ASCII
+ *
+ * @param c Character to be analysed
+ * @return int Returns 0 if false and nonzero if true
+*/
+int	isprint(int c);
 
 #endif
