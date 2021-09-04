@@ -34,7 +34,7 @@ void	test(int start, int end, int expected_output)
 	int	output;
 
 	i = start;
-	while (i < end)
+	while (i <= end)
 	{
 		output = isalpha(i);
 		if (output > 0)
@@ -46,7 +46,7 @@ void	test(int start, int end, int expected_output)
 			break ;
 		}
 		i++;
-		if (i == end)
+		if (i > end)
 			printf("OK");
 	}
 }

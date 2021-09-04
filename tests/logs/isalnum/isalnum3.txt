@@ -7,4 +7,5 @@ Current char: 53 Output: 1
 Current char: 54 Output: 1
 Current char: 55 Output: 1
 Current char: 56 Output: 1
+Current char: 57 Output: 1
 OK

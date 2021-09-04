@@ -23,4 +23,5 @@ Current char: 118 Output: 1
 Current char: 119 Output: 1
 Current char: 120 Output: 1
 Current char: 121 Output: 1
+Current char: 122 Output: 1
 OK

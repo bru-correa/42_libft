@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/03 19:18:58 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/03 20:40:21 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,14 @@ int	isdigit(int c);
  * @return int Returns 0 if false and nonzero if true
 */
 int	isalnum(int c);
+
+/**
+ * @brief Checks whether c is a 7-bit unsigned char value that fits into the
+ * ASCII character set
+ *
+ * @param c Character to be analysed
+ * @return int Returns 0 if false and nonzero if true
+*/
+int	isascii(int c);
 
 #endif

@@ -15,11 +15,11 @@ int	main(int argc, char *argv[])
 		return (0);
 	arg = atoi(argv[1]);
 	if (arg == 1)
-		test(0, '0' - 1, 0);
+		test(0, 127, 1);
 	else if (arg == 2)
-		test('0', '9', 1);
+		test(-127, -1, 0);
 	else if (arg == 3)
-		test('9' + 1, 127, 0);
+		test(128, 255, 0);
 	return (0);
 }
 
@@ -31,7 +31,7 @@ void	test(int start, int end, int expected_output)
 	i = start;
 	while (i <= end)
 	{
-		output = isdigit(i);
+		output = isascii(i);
 		if (output > 0)
 			output = 1;
 		printf("Current char: %d Output: %d\n", i, output);

@@ -67,4 +67,5 @@ Current char: 123 Output: 0
 Current char: 124 Output: 0
 Current char: 125 Output: 0
 Current char: 126 Output: 0
+Current char: 127 Output: 0
 OK
