@@ -6,12 +6,12 @@
 #    By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/01 17:37:06 by bcorrea-          #+#    #+#              #
-#    Updated: 2021/09/04 00:10:04 by bcorrea-         ###   ########.fr        #
+#    Updated: 2021/09/05 15:58:58 by bcorrea-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
-FLAGS	= -Wall -Werror -Wextra
+FLAGS	= -Wall -Werror -Wextra -ansi
 CC		= gcc
 INCLUDE	= libft.h
 TEST_SH	= tests/start_tests.sh
@@ -23,7 +23,8 @@ TEST_SH	= tests/start_tests.sh
 			ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
 			ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-MAIN_S	= isalpha.c isdigit.c isalnum.c isascii.c isprint.c strlen.c memset.c
+MAIN_S	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+			ft_strlen.c ft_memset.c
 MAIN_O	= $(MAIN_S:.c=.o)
 BONUS_S	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
@@ -55,15 +56,22 @@ re: fclean all
 
 rebonus: fclean bonus
 
-.PHONY: all bonus clean fclean re rebonus test
+.PHONY: all bonus clean fclean re rebonus test cleanlogs cleanbin
 
 # REMOVE LATER
-test: all $(TEST_B) #insert bonus here later
+test: all cleanlogs $(TEST_B) #insert bonus here later
 	$(TEST_SH)
 
 ./tests/bin/%: ./tests/src/tests/%.c
-	$(CC) $(FLAGS) $< ./tests/lib/libtest.a -I ./tests/include -I ./ -o $@
+	$(CC) $(FLAGS) $< ./tests/lib/libtest.a $(NAME) \
+		-I ./tests/include -I ./ -o $@
 
 libtest.a:
 	$(CC) $(FLAGS) ./tests/src/tests.c -I ./tests/include -o ./tests/obj/tests.o
 	ar -rcs $@ ./tests/obj/tests.o
+
+cleanlogs:
+	find ./tests/logs -type f -name "*.log" | xargs -n 1 rm -f
+
+cleanbin:
+	find ./tests/bin -type f | xargs -n 1 rm -f

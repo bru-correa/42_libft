@@ -149,7 +149,7 @@ run_tests()
 						result=$result_ko
 						test_output_length=$(($test_output_length+1))
 					fi
-					printf "${test_output}" > $logs_dir/$1/$1$current_test.txt
+					printf "${test_output}" > $logs_dir/$1/$1$current_test.log
 					current_test=$(($current_test+1))
 				fi
 				;;

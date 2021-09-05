@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/03 23:38:57 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/05 15:07:08 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  * @param c Character to be analysed
  * @return int Returns 0 if false and nonzero if true
 */
-int		isalpha(int c);
+int		ft_isalpha(int c);
 
 /**
  * @brief Checks if c is a digit in ASCII
@@ -31,7 +31,7 @@ int		isalpha(int c);
  * @param c Character to be analysed
  * @return int Returns 0 if false and nonzero if true
 */
-int		isdigit(int c);
+int		ft_isdigit(int c);
 
 /**
  * @brief Checks for an alphanumeric character in ASCII
@@ -39,7 +39,7 @@ int		isdigit(int c);
  * @param c  Character to be analysed
  * @return int Returns 0 if false and nonzero if true
 */
-int		isalnum(int c);
+int		ft_isalnum(int c);
 
 /**
  * @brief Checks whether c is a 7-bit unsigned char value that fits into the
@@ -48,7 +48,7 @@ int		isalnum(int c);
  * @param c Character to be analysed
  * @return int Returns 0 if false and nonzero if true
 */
-int		isascii(int c);
+int		ft_isascii(int c);
 
 /**
  * @brief Checks if C is a printable character in ASCII
@@ -56,7 +56,7 @@ int		isascii(int c);
  * @param c Character to be analysed
  * @return int Returns 0 if false and nonzero if true
 */
-int		isprint(int c);
+int		ft_isprint(int c);
 
 /**
  * @brief Calculates the length of the string s, excluding the terminatig null
@@ -65,7 +65,7 @@ int		isprint(int c);
  * @param s Constant string to be analysed
  * @return size_t Returns the number of bytes in the string s
 */
-size_t	strlen(const char *s);
+size_t	ft_strlen(const char *s);
 
 /**
  * @brief Writes len bytes of value c (converted to an unsigned char) to the
@@ -78,6 +78,6 @@ size_t	strlen(const char *s);
  * @param len Number of bytes to be filled
  * @return *void Returns its first argument
 */
-void	*memset(void *dest, int c, size_t len);
+void	*ft_memset(void *dest, int c, size_t len);
 
 #endif
