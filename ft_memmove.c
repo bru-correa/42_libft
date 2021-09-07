@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/05 20:02:31 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/07 03:24:29 by bcorrea-         ###   ########.fr       */
+/*   Created: 2021/09/07 02:23:41 by bcorrea-          #+#    #+#             */
+/*   Updated: 2021/09/07 03:16:29 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	while (len-- != 0)
-		*(unsigned char *) s++ = 0;
+	void	*copy;
+
+	copy = malloc(n * sizeof(*dest));
+	copy = ft_memcpy(copy, src, n);
+	dest = ft_memcpy(dest, copy, n);
+	return (dest);
 }

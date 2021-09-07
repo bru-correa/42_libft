@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/06 15:26:38 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/07 02:22:47 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,21 @@ void	ft_bzero(void *s, size_t len);
  * @param dest Pointer to destination memory area address
  * @param src Pointer to source memory area address
  * @param n Number of bytes to be copied
- * @return void* Returns a pointer to dest
+ * @return void* Returns dest
 */
 void	*ft_memcpy(void *dest, const void *src, size_t n);
+
+/**
+ * @brief Copies n bytes from memory area src to memory area dest. The memory
+ * areas may overlap: copying takes place as though the bytes in src are first
+ * copied into a temporary array that does not overlap src or dest, and the
+ * bytes are then copied from the temporary array to dest
+ *
+ * @param dest Pointer to destination memory area
+ * @param src Pointer to source memory area
+ * @param n Number of bytes that will be copied
+ * @return void* Returns dest
+*/
+void	*ft_memmove(void *dest, const void *src, size_t n);
 
 #endif
