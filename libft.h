@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/07 02:22:47 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/07 15:55:10 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,16 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
  * @return void* Returns dest
 */
 void	*ft_memmove(void *dest, const void *src, size_t n);
+
+/**
+ * @brief Copies up to size - 1 characters from the NUL-terminated string src to
+ * dest, NUL-terminating the result
+ *
+ * @param dest Destination string
+ * @param src Source string
+ * @param size Number of characters to be copied
+ * @return size_t Returns the length of src
+*/
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 
 #endif
