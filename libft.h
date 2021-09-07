@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/05 15:07:08 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/06 15:26:38 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,25 @@ size_t	ft_strlen(const char *s);
  * @return *void Returns its first argument
 */
 void	*ft_memset(void *dest, int c, size_t len);
+
+/**
+ * @brief Sets the first len bytes of the area starting at s to zero
+ *
+ * @param s Starting address
+ * @param len The length in bytes
+ * @return void None
+*/
+void	ft_bzero(void *s, size_t len);
+
+/**
+ * @brief Copies n bytes from memory area src to memory area dest. The memory
+ * areas must not overlap
+ *
+ * @param dest Pointer to destination memory area address
+ * @param src Pointer to source memory area address
+ * @param n Number of bytes to be copied
+ * @return void* Returns a pointer to dest
+*/
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 #endif

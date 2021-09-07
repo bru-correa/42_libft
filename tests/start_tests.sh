@@ -120,21 +120,25 @@ run_tests()
 				printf $abrt
 				result=$result_ko
 				current_test=$(($current_test+1))
+				test_output_length=$(($test_output_length+1))
 				;;
 			135 | 138)
 				printf $bus
 				result=$result_ko
 				current_test=$(($current_test+1))
+				test_output_length=$(($test_output_length+1))
 				;;
 			139)
 				printf $segv
 				result=$result_ko
 				current_test=$(($current_test+1))
+				test_output_length=$(($test_output_length+1))
 				;;
 			14 | 142)
 				printf $timeout
 				result=$result_ko
 				current_test=$(($current_test+1))
+				test_output_length=$(($test_output_length+1))
 				;;
 			*)
 				if [ -z "${test_output}" ]; then
