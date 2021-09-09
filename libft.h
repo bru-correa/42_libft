@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/07 18:49:30 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/09 16:14:02 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,5 +135,54 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size);
  * @return size_t Initial length of dest + length of src
 */
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
+
+/**
+ * @brief Converts the letter c to lowercase, if possible
+ *
+ * @param c Letter to be converted
+ * @return int  Returns the converted letter, or c if the convertion was not
+ * possible
+*/
+int		ft_tolower(int c);
+
+/**
+ * @brief Converts the letter c to uppercase, if possible
+ *
+ * @param c Letter to be converted
+ * @return int  Returns the converted letter, or c if the convertion was not
+ * possible
+*/
+int		ft_toupper(int c);
+
+/**
+ * @brief Returns a pointer to the first occurrence of the character in the
+ * string s
+ *
+ * @param s The source string
+ * @param c The character to be found
+ * @return char* Returns the pointer to c if found or NULL if not
+*/
+char	*ft_strchr(const char *s, int c);
+
+/**
+ * @brief Returns a pointer to the last occurrence of the character in the
+ * string s
+ *
+ * @param s The source string
+ * @param c The character to be found
+ * @return char* Returns the pointer to c if found or NULL if not
+*/
+char	*ft_strrchr(const char *s, int c);
+
+/**
+ * @brief Compares the first n bytes of s1 and s2
+ *
+ * @param s1 Pointer to the first string
+ * @param s2 Pointer to the second string
+ * @param n Number of bytes to be compared
+ * @return int Returns an integer less than, equal to, or greather than zero if
+ * s1 is found, respectively, to be less than, to match, or be greater than s2
+*/
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
