@@ -6,7 +6,7 @@
 #    By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/01 17:37:06 by bcorrea-          #+#    #+#              #
-#    Updated: 2021/09/07 15:52:59 by bcorrea-         ###   ########.fr        #
+#    Updated: 2021/09/08 17:45:47 by bcorrea-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ TEST_SH	= tests/start_tests.sh
 
 MAIN_S	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 			ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
-			ft_strlcpy.c
+			ft_strlcpy.c ft_strlcat.c
 MAIN_O	= $(MAIN_S:.c=.o)
 BONUS_S	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
@@ -76,3 +76,6 @@ cleanlogs:
 
 cleanbin:
 	find ./tests/bin -type f | xargs -n 1 rm -f
+
+test2: all
+	../Libfttest/grademe.sh

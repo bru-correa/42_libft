@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/07 15:55:10 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/07 18:49:30 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ size_t	ft_strlen(const char *s);
  *
  * @param dest Starting address of memory to be filled
  * @param c Value to be filled
- * @param len Number of bytes to be filled
+ * @param len The buffer size in bytes
  * @return *void Returns its first argument
 */
 void	*ft_memset(void *dest, int c, size_t len);
@@ -84,7 +84,7 @@ void	*ft_memset(void *dest, int c, size_t len);
  * @brief Sets the first len bytes of the area starting at s to zero
  *
  * @param s Starting address
- * @param len The length in bytes
+ * @param len The buffer size in bytes
  * @return void None
 */
 void	ft_bzero(void *s, size_t len);
@@ -95,7 +95,7 @@ void	ft_bzero(void *s, size_t len);
  *
  * @param dest Pointer to destination memory area address
  * @param src Pointer to source memory area address
- * @param n Number of bytes to be copied
+ * @param n Buffer size in bytes
  * @return void* Returns dest
 */
 void	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -108,20 +108,32 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
  *
  * @param dest Pointer to destination memory area
  * @param src Pointer to source memory area
- * @param n Number of bytes that will be copied
+ * @param n Buffer size in bytes
  * @return void* Returns dest
 */
 void	*ft_memmove(void *dest, const void *src, size_t n);
 
 /**
- * @brief Copies up to size - 1 characters from the NUL-terminated string src to
+ * @brief Copies up to (size - 1) bytes from the NUL-terminated string src to
  * dest, NUL-terminating the result
  *
  * @param dest Destination string
  * @param src Source string
- * @param size Number of characters to be copied
+ * @param size Buffer size in bytes
  * @return size_t Returns the length of src
 */
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+
+/**
+ * @brief Appends the NUL-terminated string src to the end of dst. It will
+ * append at most (size - strlen(dest) - 1) bytes, NUL-terminating the result
+ *
+ * @param dest Destination pointer to memory area
+ * @param src Source pointer to memory area
+ * @param size Buffer size in bytes
+ *
+ * @return size_t Initial length of dest + length of src
+*/
+size_t	ft_strlcat(char *dest, const char *src, size_t size);
 
 #endif
