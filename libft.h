@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/09 16:14:02 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/09 17:31:03 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,5 +184,18 @@ char	*ft_strrchr(const char *s, int c);
  * s1 is found, respectively, to be less than, to match, or be greater than s2
 */
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+
+/**
+ * @brief Scans the initial n bytes of the memory area pointed to by s for the
+ * first instance of c. Both c and the bytes of the memory area pointed to by s
+ * are interpreted as unsigned char
+ *
+ * @param s Source pointer to memory area
+ * @param c The character to be searched
+ * @param n Buffer size in bytes
+ * @return void* Returns a pointer to the matching byte, if one is found. If no
+ * matching byte if found, the result is unspecified
+*/
+void	*ft_memchr(const void *s, int c, size_t n);
 
 #endif
