@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/09 23:16:45 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/09 23:31:21 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,5 +209,18 @@ void	*ft_memchr(const void *s, int c, size_t n);
  * be greater than the first n bytes of s2.
 */
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+
+/**
+ * @brief Locates the first occurence of the null-terminated string little in
+ * the null-terminated string big
+ *
+ * @param big The bigger string that can contain little
+ * @param little The substring in big
+ * @param n The buffer size in bytes
+ * @return char* If little is an empty string, big is returned; if little occurs
+ * nowhere in big, NULL is returned; otherwise a pointer to the first character
+ * of the first occurance of little is returned
+*/
+char	*ft_strnstr(const char *big, const char *little, size_t n);
 
 #endif

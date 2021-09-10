@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/09 17:32:45 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/10 14:47:26 by bcorrea-         ###   ########.fr       */
+/*   Created: 2021/09/09 23:31:59 by bcorrea-          #+#    #+#             */
+/*   Updated: 2021/09/10 16:27:29 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
-	unsigned char	*str;
-	unsigned char	chr;
-	size_t			i;
+	size_t	i;
+	size_t	l_len;
+	size_t	match;
 
-	str = (unsigned char *) s;
-	chr = (unsigned char) c;
+	if (*little == '\0')
+		return ((char *) big);
 	i = 0;
-	if (n == 0)
-		return (NULL);
-	while (str[i])
+	match = 0;
+	l_len = ft_strlen(little);
+	while (i < n)
 	{
-		if (str[i] && i < n)
-		{
-			if (str[i] == chr)
-				return ((void *)(s + i));
-		}
+		if (little[match] == big[i])
+			match++;
+		else
+			match = 0;
+		if (match == l_len)
+			return ((char *) &big[i - (match - 1)]);
 		i++;
 	}
 	return (NULL);
