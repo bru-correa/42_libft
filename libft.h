@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/09 17:31:03 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/09 23:16:45 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,5 +197,17 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
  * matching byte if found, the result is unspecified
 */
 void	*ft_memchr(const void *s, int c, size_t n);
+
+/**
+ * @brief Compares the first n bytes of the memory areas s1 and s2
+ *
+ * @param s1 First string pointer to memory area
+ * @param s2 Second string pointer to memory area
+ * @param n Buffer size in bytes
+ * @return int Returns an integer less than, equal to, or greater than zero if
+ * the first n bytes of s1 is found, respectively, to be less than, to match, or
+ * be greater than the first n bytes of s2.
+*/
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 #endif
