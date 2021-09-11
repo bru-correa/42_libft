@@ -6,19 +6,12 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:52:59 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/11 16:52:53 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/11 16:54:41 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	Check if str is empty
-	Skip leading white-spaces
-	Get the sign if it existis
-	Get the decimals
-	End when it reaches a non digit character
-*/
 static int	ft_isspace(const char c);
 static int	get_decimals(const char *str);
 
