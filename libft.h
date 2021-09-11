@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/09 23:31:21 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/11 16:08:48 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,5 +222,16 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
  * of the first occurance of little is returned
 */
 char	*ft_strnstr(const char *big, const char *little, size_t n);
+
+/**
+ * @brief Converts a character string to an integer value. The function stops
+ * reading str at the first character that it cannot recognize as part of a
+ * number. It ignores leading white-space characters. It does not recognize
+ * decimal points or expoents
+ *
+ * @param str Pointer to character string
+ * @return int The converted value
+*/
+int		ft_atoi(const char *str);
 
 #endif
