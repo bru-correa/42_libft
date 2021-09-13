@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/13 14:32:12 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/13 16:13:23 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -246,5 +246,28 @@ int		ft_atoi(const char *str);
  * return NULL
 */
 void	*ft_calloc(size_t nmemb, size_t size);
+
+/**
+ * @brief Returns a pointer to a new string which is a duplicate of the string
+ * s. Memory for the new string is obtained with malloc
+ *
+ * @param s The string to be copied
+ * @Return char* Returns a pointer to the duplicated string, or NULL if
+ * insufficient memory was available
+*/
+char	*ft_strdup(const char *s);
+
+/* ***** Part 2 - Additional Functions ***** */
+
+/**
+ * @brief Allocates (with malloc(3)) and returns a substring from the string s.
+ * The substring begin at index 'start' and is of maximum size 'len'
+ *
+ * @param s The string from which to create the substring.
+ * @param start The start index of the substring in the string 's'
+ * @param len The maximum length of the substring
+ * @return char* The substring. NULL if the allocation fails
+*/
+char	*ft_substr(const char *s, unsigned int start, size_t len);
 
 #endif
