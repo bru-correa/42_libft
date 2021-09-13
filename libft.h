@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/13 16:13:23 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/13 16:24:05 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -269,5 +269,15 @@ char	*ft_strdup(const char *s);
  * @return char* The substring. NULL if the allocation fails
 */
 char	*ft_substr(const char *s, unsigned int start, size_t len);
+
+/**
+ * @brief Allocates (with malloc(3)) and returns a new string, which is the
+ * result of the concatenation of 's1' and 's2'
+ *
+ * @param s1 The prefix string
+ * @param s2 The suffix string
+ * @return char* The new string. NULL if the allocation fails
+*/
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
