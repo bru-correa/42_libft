@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/11 16:08:48 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/13 14:32:12 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,5 +233,18 @@ char	*ft_strnstr(const char *big, const char *little, size_t n);
  * @return int The converted value
 */
 int		ft_atoi(const char *str);
+
+/**
+ * @brief Allocates memory for an array of nmemb elements of size bytes each and
+ * returns a pointer to the allocated memory. The memory is set to zero. If
+ * nmemb or size is 0, then calloc returns either NULL, or a unique pointer
+ * value that can later be succesfully passed to free()
+ *
+ * @param nmemb Number of elements in the array
+ * @param size Size in bytes for each element
+ * @return void* Returns a pointer to the allocated memory. On error, it will
+ * return NULL
+*/
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif
