@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/13 16:24:05 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/14 16:09:54 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -279,5 +279,16 @@ char	*ft_substr(const char *s, unsigned int start, size_t len);
  * @return char* The new string. NULL if the allocation fails
 */
 char	*ft_strjoin(char const *s1, char const *s2);
+
+/**
+ * @brief Allocates (with malloc (3)) and returns a copy of 's1' with the
+ * characters specified in 'set'removed from the beginning and the end of the
+ * string
+ *
+ * @param s1 The string to be trimmed
+ * @param s2 The reference set of characters to trim
+ * @return char* The trimmed string. NULL if the allocation fails
+*/
+char	*ft_strtrim(const char *s1, const char *set);
 
 #endif
