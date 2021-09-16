@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 21:28:24 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/16 16:09:45 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/16 16:13:45 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*substr;
 	char	*substr_start;
 
+	if (!s)
+		return (NULL);
 	substr = malloc((len + 1) * sizeof(char));
 	if (!substr)
 		return (NULL);
