@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/14 16:09:54 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/21 17:25:09 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <unistd.h>
 
 /* ***** Part 1 - Libc Functions ***** */
 
@@ -291,4 +292,84 @@ char	*ft_strjoin(char const *s1, char const *s2);
 */
 char	*ft_strtrim(const char *s1, const char *set);
 
+/**
+ * @brief Allocates (with malloc(3)) and returns an array of strings obtained by
+ * splitting 's' using the character 'c' as a delimeter. The array must be ended
+ * by a NULL pointer
+ *
+ * @param s The string to be split
+ * @param c The delimeter character
+ * @return char The array of new strings resulting from the split. NULL if the
+ * allocation fails.
+*/
+char	**ft_split(const char *s, char c);
+
+/**
+ * @brief Allocates (with malloc(3)) and returns a string representing the
+ * integer received as an argument. Negative numbers msut be handled
+ *
+ * @param n The integer to convert
+ * @return The string representing the integer received as argument. Negative
+ * numbers must be handled.
+*/
+char	*ft_itoa(int n);
+
+/**
+ * @brief Applies the function 'f' to each character of the string 's' to create
+ * a new string (with malloc(3)) resulting from successive applications of 'f'
+ *
+ * @param s The string on which to iterate
+ * @param f The function to apply to each character
+ * @return char The string created from the successive applications of 'f'.
+ * Returns NULL of the allocation fails
+*/
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
+
+/**
+ * @brief Applies to the function f to each character of the string passed as
+ * argument, and passing its index as first argument. Each character is passed
+ * by address to f to be modified if necessary
+ *
+ * @param s The string on which to iterate
+ * @param f The function to apply to each character
+ * @return None
+*/
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+
+/**
+ * @brief Outputs the character 'c' to the given file descriptor
+ *
+ * @param c The character to output
+ * @param fd The file descriptor on which to write
+ * @return None
+*/
+void	ft_putchar_fd(char c, int fd);
+
+/**
+ * @brief Outputs the string 's' to the given file descriptor
+ *
+ * @param s The string to output
+ * @param fd The file descriptor on which to write
+ * @return None
+*/
+void	ft_putstr_fd(char *s, int fd);
+
+/**
+ * @brief Outputs the string 's' to the given file descriptor, followed by a
+ * newline
+ *
+ * @param s The string to output
+ * @param fd The file descriptor on which to write
+ * @return None
+*/
+void	ft_putendl_fd(char *s, int fd);
+
+/**
+ * @brief Outputs the integer 'n' to the given file descriptor
+ *
+ * @param n The integer to output
+ * @param fd The file descriptor on which to write
+ * @return None
+*/
+void	ft_putnbr_fd(int n, int fd);
 #endif
