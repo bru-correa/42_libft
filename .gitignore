@@ -4,3 +4,5 @@
 *.out
 *.so
 libft.so
+test.c
+test
