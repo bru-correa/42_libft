@@ -6,13 +6,15 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 16:19:04 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/21 16:20:39 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/22 13:14:12 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
 void	ft_putnbr_fd(int n, int fd)
 {
 
 }
+*/
