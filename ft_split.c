@@ -6,79 +6,51 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 17:45:10 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/27 16:39:22 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/27 17:13:14 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-* Set start_pos at the first index without the delimiter
-* Start to run the iterator from start_pos to the next delimeter or NULL
-* Allocate another memory space for the next string with start_pos - end_pos + 1
-* Set the string in the array
-*/
 #include "libft.h"
 
-static char		*get_string(const char *s, char c, size_t *pos);
-static char		*set_string(const char *src, char *dest, size_t start, \
-															size_t end);
+static char		*get_word(const char *s, char c, int *pos);
+static char		*set_word(const char *src, char *dest, int start, int end);
 static size_t	count_words(const char *s, char c);
+static char		**init_words(const char *s, char c);
 
 char	**ft_split(const char *s, char c)
 {
-	char	**output;
-	size_t	*pos;
+	char	**words;
+	char	**words_start;
+	int		pos;
+
+	words = init_words(s, c);
+	if (!words)
+		return (NULL);
+	words_start = words;
+	pos = 0;
+	while (s[pos])
+	{
+		while (s[pos] && s[pos] == c)
+			pos++;
+		if (s[pos])
+			*words++ = get_word(s, c, &pos);
+	}
+	*words = NULL;
+	return (words_start);
+}
+
+static char	**init_words(const char *s, char c)
+{
 	size_t	wordn;
-	char	**output_start;
+	char	**words;
 
 	if (!s)
 		return (NULL);
-	pos = (size_t *) malloc(sizeof(size_t));
-	if (!pos)
-		return (NULL);
-	*pos = 0;
 	wordn = count_words(s, c);
-	output = malloc((wordn + 1) * sizeof(char *));
-	if (!output)
+	words = malloc((wordn + 1) * sizeof(char *));
+	if (!words)
 		return (NULL);
-	output_start = output;
-	while (s[*pos])
-	{
-		while (s[*pos] && s[*pos] == c)
-			*pos = *pos + 1;
-		if (s[*pos])
-			*output++ = get_string(s, c, pos);
-	}
-	*output = NULL;
-	free(pos);
-	return (output_start);
-}
-
-static char	*get_string(const char *s, char c, size_t *pos)
-{
-	size_t	start_pos;
-	char	*output;
-
-	start_pos = *pos;
-	while (s[*pos] != c && s[*pos])
-		*pos = *pos + 1;
-	output = malloc((*pos - start_pos + 2) * (sizeof(char)));
-	if (!output)
-		return (NULL);
-	set_string(s, output, start_pos, *pos - 1);
-	return (output);
-}
-
-static char	*set_string(const char *src, char *dest, size_t start, size_t end)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = start;
-	while (j <= end)
-		dest[i++] = src[j++];
-	dest[i] = '\0';
-	return (dest);
+	return (words);
 }
 
 static size_t	count_words(const char *s, char c)
@@ -98,13 +70,30 @@ static size_t	count_words(const char *s, char c)
 	return (counter);
 }
 
-/*
-int	main(void)
+static char	*get_word(const char *s, char c, int *pos)
 {
-	char	*s1 = "      split       this for   me  !       ";
-	char	**words;
+	int		start_pos;
+	char	*output;
 
-	words = ft_split(s1, ' ');
-	return (0);
+	start_pos = *pos;
+	while (s[*pos] != c && s[*pos])
+		*pos = *pos + 1;
+	output = malloc((*pos - start_pos + 2) * (sizeof(char)));
+	if (!output)
+		return (NULL);
+	set_word(s, output, start_pos, *pos - 1);
+	return (output);
 }
-*/
+
+static char	*set_word(const char *src, char *dest, int start, int end)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = start;
+	while (j <= end)
+		dest[i++] = src[j++];
+	dest[i] = '\0';
+	return (dest);
+}
