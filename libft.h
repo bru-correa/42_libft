@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/21 17:25:09 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/28 18:33:47 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 /* ***** Part 1 - Libc Functions ***** */
 
@@ -372,4 +378,39 @@ void	ft_putendl_fd(char *s, int fd);
  * @return None
 */
 void	ft_putnbr_fd(int n, int fd);
+
+/**
+ * @brief Allocates (with malloc(3)) and returns a new element. The variable
+ * 'content' is initialized with the value of the parameter 'content'. The
+ * variable 'next' is initialized to NULL
+ *
+ * @param content The content to create the new element with
+ * @return t_list The new element
+*/
+t_list	*ft_lstnew(void *content);
+
+/**
+ * @brief Adds the element 'new' at the beginning of the list
+ *
+ * @param lst The address of a pointer to the first link of a list
+ * @param new The address of a pointer to the element to be added to the list
+ * @return None
+*/
+void	ft_lstadd_front(t_list **lst, t_list *new);
+
+/**
+ * @brief Counts the number of elements in a list
+ *
+ * @param lst The beginning of the list
+ * @return int The length of the list
+*/
+int		ft_lstsize(t_list *lst);
+
+/**
+ * @brief Returns the last element of the list
+ *
+ * @param lst The beginning of the list
+ * @return t_list The last element of the list
+*/
+t_list	*ft_lslast(t_list *lst);
 #endif

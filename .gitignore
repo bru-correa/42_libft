@@ -3,7 +3,7 @@
 *.o
 *.out
 *.so
-*.a
+libft.a
 libft.so
 test.c
 test
