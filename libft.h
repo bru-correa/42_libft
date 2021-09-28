@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/28 18:33:47 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/28 19:16:12 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -413,4 +413,13 @@ int		ft_lstsize(t_list *lst);
  * @return t_list The last element of the list
 */
 t_list	*ft_lslast(t_list *lst);
+
+/**
+ * @brief Adds the element 'new'at the end of the list
+ *
+ * @param lst The address of a pointer to the first link of a list
+ * @param new The address of a pointer to the element to be added to the list
+ * @return None
+*/
+void	ft_lstadd_back(t_list **lst, t_list *new);
 #endif
