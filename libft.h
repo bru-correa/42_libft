@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/28 19:16:12 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/28 19:36:45 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -422,4 +422,15 @@ t_list	*ft_lslast(t_list *lst);
  * @return None
 */
 void	ft_lstadd_back(t_list **lst, t_list *new);
+
+/**
+ * @brief Takes as a paremeter an element and frees the memory of the element's
+ * content using the function 'del' given as a parameter and free the element.
+ * The memory of 'next' must not be freed
+ *
+ * @param lst The element to free
+ * @param del The address of the function used to delete the content
+ * @return None
+*/
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
 #endif
