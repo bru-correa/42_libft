@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:10:59 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/21 18:48:17 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/28 13:54:47 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@ char	*ft_strtrim(const char *s1, const char *set)
 	size_t			size;
 	unsigned int	start;
 
-	if (!s1 && !set)
+	if (!s1 || !set)
 		return (NULL);
-	start = trim_start(s1, set);
 	size = ft_strlen(s1);
-	size = trim_end(s1, set, size);
-	if (!*s1)
-		return (ft_strdup(s1));
-	return (ft_substr(s1, start, size));
+	start = trim_start(s1, set);
+	if (start != size)
+		size = trim_end(s1, set, size);
+	return (ft_substr(s1, start, size - start));
 }
 
 unsigned int	trim_start(const char *s1, const char *set)
@@ -47,7 +46,7 @@ unsigned int	trim_start(const char *s1, const char *set)
 		}
 		i++;
 	}
-	return (i);
+	return (start);
 }
 
 size_t	trim_end(const char *s1, const char *set, size_t size)
