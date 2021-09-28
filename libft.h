@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/28 19:36:45 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/28 19:50:14 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -433,4 +433,16 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
  * @return None
 */
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
+
+/**
+ * *@brief Deletes and frees the given element and every successor of that
+ * element, using the function del and free(3). Finally, the pointer to list
+ * must be set to NULL
+ *
+ * @param lst The address of a pointer to an element
+ * @param del The address of the function used to delete the content of the
+ * element
+ * @return None
+*/
+void	ft_lstclear(t_list **lst, void (*del)(void *));
 #endif
