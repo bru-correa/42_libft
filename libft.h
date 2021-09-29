@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/28 20:44:20 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/28 21:44:12 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -412,7 +412,7 @@ int		ft_lstsize(t_list *lst);
  * @param lst The beginning of the list
  * @return t_list The last element of the list
 */
-t_list	*ft_lslast(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
 
 /**
  * @brief Adds the element 'new'at the end of the list

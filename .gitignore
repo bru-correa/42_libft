@@ -1,5 +1,5 @@
 .vscode
-./tests/logs/*
+./tests
 *.o
 *.out
 *.so
@@ -7,4 +7,5 @@ libft.a
 libft.so
 test.c
 test
+tests
 *.debug
