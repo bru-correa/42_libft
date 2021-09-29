@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 23:31:59 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/10 16:27:29 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/29 20:30:19 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,18 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 	i = 0;
 	match = 0;
 	l_len = ft_strlen(little);
-	while (i < n)
+	while (i < n && big[i])
 	{
-		if (little[match] == big[i])
+		while (little[match] == big[i + match] && i + match < n)
+		{
+			if (!big[i + match])
+				break ;
 			match++;
+		}
+		if (match == l_len)
+			return ((char *)(big + i));
 		else
 			match = 0;
-		if (match == l_len)
-			return ((char *) &big[i - (match - 1)]);
 		i++;
 	}
 	return (NULL);
