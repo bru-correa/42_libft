@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/28 19:50:14 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/28 20:44:20 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -445,4 +445,28 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
  * @return None
 */
 void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+/**
+ * @brief Iterates the list 'lst' and applies the function 'f' to the content of
+ * each element
+ *
+ * @param lst The address of a pointer to an element
+ * @param f The address of the function used to iterate on the list
+ * @return None
+*/
+void	ft_lstier(t_list *lst, void (*f)(void *));
+
+/**
+ * @brief Iterates the list 'lst' and applies the function 'f' to the content of
+ * each element. Creates a new list resulting of the successive applications of
+ * the function 'f', The 'del' function is used to delete the content of an
+ * element if needed
+ *
+ * @param lst The address of a pointer to an element
+ * @param f The address of the function used to iterate on the list
+ * @param del The address of the function used to delete the content of an
+ * element if needed
+ * @return t_list The new list. NULL if the allocation fails
+*/
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #endif

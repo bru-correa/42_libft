@@ -6,7 +6,7 @@
 #    By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/01 17:37:06 by bcorrea-          #+#    #+#              #
-#    Updated: 2021/09/28 19:54:37 by bcorrea-         ###   ########.fr        #
+#    Updated: 2021/09/28 20:45:00 by bcorrea-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ MAIN_S	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 			ft_putnbr_fd.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c
 MAIN_O	= $(MAIN_S:.c=.o)
 BONUS_S	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+			ft_lstmap.c
 BONUS_O	= $(BONUS_S:.c=.o)
 
 # REMOVE LATER
