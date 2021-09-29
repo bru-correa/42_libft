@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/28 21:44:12 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/28 21:50:53 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -454,7 +454,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
  * @param f The address of the function used to iterate on the list
  * @return None
 */
-void	ft_lstier(t_list *lst, void (*f)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 /**
  * @brief Iterates the list 'lst' and applies the function 'f' to the content of
