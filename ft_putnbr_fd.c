@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 16:19:04 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/27 15:32:04 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/29 21:48:54 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 	{
 		un = (unsigned int)(n * -1);
-		write(fd, (char *) '-', 1);
+		ft_putchar_fd('-', fd);
 	}
 	write_digit(un, fd);
 }
@@ -35,5 +35,5 @@ static void	write_digit(unsigned int n, int fd)
 	if (n / 10 > 0)
 		write_digit(n / 10, fd);
 	c = (n % 10) + '0';
-	write(fd, &c, 1);
+	ft_putchar_fd(c, fd);
 }
