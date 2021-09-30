@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/28 21:50:53 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2021/09/30 13:55:06 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -378,6 +378,8 @@ void	ft_putendl_fd(char *s, int fd);
  * @return None
 */
 void	ft_putnbr_fd(int n, int fd);
+
+/* ***** Bonus Functions ***** */
 
 /**
  * @brief Allocates (with malloc(3)) and returns a new element. The variable
