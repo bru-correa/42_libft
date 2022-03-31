@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2021/09/30 13:55:06 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2022/03/25 15:42:34 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX 1024
+# endif
 
 typedef struct s_list
 {
@@ -471,4 +479,23 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
  * @return t_list The new list. NULL if the allocation fails
 */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/** ***** EXTRA FUNCTIONS ***** */
+
+/**
+ * @brief Write a function which returns a line read from a file descriptor
+ *
+ * @param fd File descriptor to read from
+ * @return Read line or NULL if nothing else to read or an error accurred
+*/
+char		*get_next_line(int fd);
+
+/**
+ * @brief Free and assign NULL to 'ptr'
+ *
+ * @param ptr The pointer to reset
+ * @return NULL
+*/
+void		*reset_ptr(void *ptr);
+
 #endif
