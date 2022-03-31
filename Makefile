@@ -6,7 +6,7 @@
 #    By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/25 17:50:16 by bcorrea-          #+#    #+#              #
-#    Updated: 2022/03/31 00:33:10 by bcorrea-         ###   ########.fr        #
+#    Updated: 2022/03/31 01:12:05 by bcorrea-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ FILENAMES			+= ft_lstnew ft_lstadd_front ft_lstsize ft_lstlast
 FILENAMES			+= ft_lstadd_back ft_lstdelone ft_lstclear
 FILENAMES			+= ft_lstiter ft_lstmap
 # Extra files that i added during the course
-FILENAMES			+= ft_get_next_line ft_reset_ptr
+FILENAMES			+= ft_get_next_line ft_reset_ptr ft_printf print_char
+FILENAMES			+= print_decimal print_hexadecimal printf_utils
 
 SRC_FILES			= $(patsubst %, %.c, $(FILENAMES))
 OBJ_FILES			= $(patsubst %, %.o, $(FILENAMES))

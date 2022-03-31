@@ -6,7 +6,7 @@
 /*   By: bcorrea- <bruuh.cor@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:18:57 by bcorrea-          #+#    #+#             */
-/*   Updated: 2022/03/25 15:42:34 by bcorrea-         ###   ########.fr       */
+/*   Updated: 2022/03/31 01:19:09 by bcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -497,5 +497,13 @@ char		*get_next_line(int fd);
  * @return NULL
 */
 void		*reset_ptr(void *ptr);
+
+/**
+ * @brief Write output to the standard to stdout
+ *
+ * @param input The format string
+ * @return The n of printed characters
+*/
+int	ft_printf(const char *input, ...);
 
 #endif
